@@ -1,7 +1,7 @@
 const fs = require('fs');
- const inquirer = require('inquirer')
- const writeToFile = require('./src/page-template')
-const renderLicenseBadge = require('./utilities/generateReadMe')
+const inquirer = require('inquirer');
+const writeToFile = require('./src/page-template');
+const renderLicenseBadge = require('./utilities/generateReadMe');
 
 //TODO: Create an array of questions for user input
 const promptQuestions = () => {
@@ -69,7 +69,7 @@ const promptQuestions = () => {
         type: 'checkbox',
         name: 'license',
         message: 'Choose a license for your project. Please only choose one',
-        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU General Public License v2.0', 'Mozilla Public License 2.0', 'The Unlicense'],
+        choices: ['Apache', 'GPLv3', 'BSD', 'Boost', 'CC0', 'MIT', 'GNU', 'Mozilla'],
     },
     {
         type: 'input',
@@ -86,8 +86,9 @@ const promptQuestions = () => {
             ])
         .then(data=> {
             console.log(data)
-        
+         writeToFile();
         })
+       
             // .then(projectData => {
             //     portfolioData.projects.push(projectData);
             //     if(projectData.confirmAddProject) {
@@ -97,15 +98,15 @@ const promptQuestions = () => {
             //     }
             //     });
              };
-             writeToFile();
-       fs.writeFile('./index.html', writeToFile()), err =>{
-       if(err)throw new Error(err);
+            
+    //    fs.writeFile('./index.html', writeToFile()), err =>{
+    //    if(err)throw new Error(err);
 
-       console.log('README complete! Look at index.html to see the finished product!')
+    //    console.log('README complete! Look at index.html to see the finished product!')
      
        
 
-       }
+       
 
 
 // TODO: Create a function to write README file
@@ -119,3 +120,5 @@ function init() {
 
 // Function call to initialize app
 init();
+
+module.export=promptQuestions

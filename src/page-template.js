@@ -1,4 +1,6 @@
-  function writeToFile(data) {
+const fs = require('fs');
+
+  function writeToFile(title, description, installation, usage, license, licensedescription, contributors, test, author, email, github) {
     return `
     <!DOCTYPE html> 
     <html lang="en"> 
@@ -55,5 +57,12 @@
     </body>
     </html>
     `;
+    
   };
+
+  fs.writeFile('./index.html', writeToFile()), err =>{
+  if(err)throw new Error(err);
+  };
+  console.log('README complete! Look at index.html to see the finished product!')
+  
   module.exports = writeToFile;
