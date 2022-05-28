@@ -1,6 +1,6 @@
-const fs = require('fs');
-
-  function writeToFile(title, description, installation, usage, license, licensedescription, contributors, test, author, email, github) {
+  
+ const writeToFile=(title, description, installation, usage, contributors, test, email, author, github) => {
+  
     return `
     <!DOCTYPE html> 
     <html lang="en"> 
@@ -8,6 +8,7 @@ const fs = require('fs');
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     
       <title>${title}</title>
     </head>
     <body>
@@ -38,8 +39,8 @@ const fs = require('fs');
 </div>
 <div>
     <h2>License<h2>
-    <h3>${license}</h3>
-    <h4>${licensedescription}</h4>
+    <h3></h3>
+    <h4></h4>
 </div>
 <div>
     <h2>Contributors<h2>
@@ -53,16 +54,21 @@ const fs = require('fs');
     <h3>If you have any questions please contact ${author} at ${email}
      or on GitHub at <a href='https://github.com/${github}.'><h3>
 
-
     </body>
     </html>
     `;
-    
-  };
-
-  fs.writeFile('./index.html', writeToFile()), err =>{
-  if(err)throw new Error(err);
-  };
-  console.log('README complete! Look at index.html to see the finished product!')
+  }
   
-  module.exports = writeToFile;
+  
+  
+  
+        
+   
+        
+        
+    
+    
+  module.exports = writeToFile 
+  
+    
+  

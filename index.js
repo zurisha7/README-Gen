@@ -2,8 +2,8 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const writeToFile = require('./src/page-template');
 const renderLicenseBadge = require('./utilities/generateReadMe');
-
 //TODO: Create an array of questions for user input
+
 const promptQuestions = () => {
      return inquirer
     .prompt ([
@@ -13,7 +13,7 @@ const promptQuestions = () => {
         message: 'Enter the title of your project.',
         validate: titleInput => {
             if(titleInput) {
-                return true;
+              return true;
             }else{
                 console.log('Please enter your project title!');
                 return false;
@@ -66,7 +66,7 @@ const promptQuestions = () => {
         message: 'Enter your email address.'
     },
     {
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
         message: 'Choose a license for your project. Please only choose one',
         choices: ['Apache', 'GPLv3', 'BSD', 'Boost', 'CC0', 'MIT', 'GNU', 'Mozilla'],
@@ -82,43 +82,49 @@ const promptQuestions = () => {
                 return false;
             }
         }
-    }
-            ])
+      }
+    ])
         .then(data=> {
-            console.log(data)
-         writeToFile();
-        })
-       
-            // .then(projectData => {
-            //     portfolioData.projects.push(projectData);
-            //     if(projectData.confirmAddProject) {
-            //       return promptProject(porfolioData);
-            //     } else {
-            //       return portfolioData;
-            //     }
-            //     });
-             };
-            
-    //    fs.writeFile('./index.html', writeToFile()), err =>{
-    //    if(err)throw new Error(err);
-
-    //    console.log('README complete! Look at index.html to see the finished product!')
-     
-       
-
-       
-
+             return data;
+        
+        })     
+          
+    };
 
 // TODO: Create a function to write README file
-
-
-
+const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile('./index.html', writeToFile(JSON.stringify(fileContent)), err => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        
+        resolve({
+          ok: true,
+          message: 'File created!'
+        });
+      });
+    });
+  };
+   
 // TODO: Create a function to initialize app
-function init() {
-   promptQuestions();
-}
 
-// Function call to initialize app
-init();
+   promptQuestions( ) 
+        .then(pageHTML => {
+        return writeFile(pageHTML);
+    }) 
+    .then(writeFileResponse => {
+        console.log(writeFileResponse); 
+    })
+    .catch(err => {
+        console.log(err);
+    });
+        
 
-module.export=promptQuestions
+
+   
+ 
+  
+
+module.exports =  promptQuestions;
