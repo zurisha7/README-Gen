@@ -3,8 +3,7 @@
 // TODO: Create a function to generate markdown for README
 function generateReadMe(data) {
 
-  //   return `# ${data.title}
-   return `# ${data.title}
+     return `# ${data.title}
 
    ![badge](https://img.shields.io/badge/license-${data.license}-important)
    
@@ -34,7 +33,7 @@ function generateReadMe(data) {
  
    ## Contact:
     If you have any questions please contact ${data.author} at ${data.email}
-   or on GitHub at <a href='https://github.com/${data.github}.'
+   or on GitHub at 'https://github.com/${data.github}.'
 `
   
  }
