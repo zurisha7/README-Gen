@@ -1,12 +1,10 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const writeToFile = require('./src/page-template');
-const renderLicenseBadge = require('./utilities/generateReadMe');
-//TODO: Create an array of questions for user input
+const generateReadMe = require('./utilities/generateReadMe.js');
 
-const promptQuestions = () => {
-     return inquirer
-    .prompt ([
+
+const questions = [
+     
     {
         type: 'input',
         name: 'title',
@@ -57,8 +55,8 @@ const promptQuestions = () => {
     },
     {
         type: 'input',
-        name: 'contributors',
-        message: 'Enter the Contributors of your project.'
+        name: 'author',
+        message: 'Enter the authors of your project.'
     },
     {
         type: 'input',
@@ -70,61 +68,35 @@ const promptQuestions = () => {
         name: 'license',
         message: 'Choose a license for your project. Please only choose one',
         choices: ['Apache', 'GPLv3', 'BSD', 'Boost', 'CC0', 'MIT', 'GNU', 'Mozilla'],
-    },
-    {
-        type: 'input',
-        name: 'author',
-        message: 'Please enter your name.',
-        validate: authorInput => {
-            if(authorInput) {
-                return true;
-            }else{
-                return false;
-            }
-        }
-      }
-    ])
-        .then(data=> {
-             return data;
-        
-        })     
-          
-    };
+    }
+    
+    ];
 
-// TODO: Create a function to write README file
-const writeFile = fileContent => {
-    return new Promise((resolve, reject) => {
-      fs.writeFile('./index.html', writeToFile(JSON.stringify(fileContent)), err => {
-        if (err) {
-          reject(err);
-          return;
-        }
-        
-        resolve({
-          ok: true,
-          message: 'File created!'
-        });
-      });
-    });
-  };
+  
    
 // TODO: Create a function to initialize app
 
-   promptQuestions( ) 
-        .then(pageHTML => {
-        return writeFile(pageHTML);
-    }) 
-    .then(writeFileResponse => {
-        console.log(writeFileResponse); 
-    })
-    .catch(err => {
-        console.log(err);
-    });
+   function promptQuestions( ) { 
+    inquirer.prompt(questions)
+    .then(function(data) {
+
+        const readmeData = generateReadMe(data)
+
+        fs.writeFile('README.md', readmeData, err => {
+            if (err) {
+              reject(err);
+              return;
+            }
         
-
-
+            else {
+             console.log('Your new ReadMe is ready!');
+            }
+            
+          });
+        }
+    )};
    
- 
-  
 
-module.exports =  promptQuestions;
+        //call the promptQuestions
+        promptQuestions();  
+
