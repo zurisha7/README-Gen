@@ -13,8 +13,9 @@
    - [Languages](#languages)    
    - [License](#license)
    - [Contact](#contact)
+   - [Video](#video)
 
-   ##Installation
+   ## Installation
    Install nodeJS, install inquirer, then node index.js
 
    ## Usage
@@ -28,4 +29,7 @@
  
    ## Contact:
     If you have any questions please contact Andrea West at andreamwest7@gmail.com
-   or on GitHub at <a href='https://github.com/zurisha7.'
+   or on GitHub at https://github.com/zurisha7
+   
+   ## Video
+   https://drive.google.com/file/d/1LXK1sKd2OYRsImR7r1bVyxZd_YkqPbWH/view
