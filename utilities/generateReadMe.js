@@ -20,23 +20,21 @@ function generateReadMe(data) {
    - [License](#license)
    - [Contact](#contact)
 
-  
+   ##Installation
+   ${data.installation}
+
    ## Usage
    ${data.usage}
      
    ## License
    ![badge](https://img.shields.io/badge/license-${data.license}-important)
-   <br>
+   
    Permission given under the ${data.license} license. <https://opensource.org/licenses/${data.license}>
  
  
    ## Contact:
-    <a href="mailto:${data.email}">${data.email}</a>
-
-  ## Github:
-  <h2>Questions</h2>
-  <h3>If you have any questions please contact ${data.author} at ${data.email}
-   or on GitHub at <a href='https://github.com/${data.github}.'>
+    If you have any questions please contact ${data.author} at ${data.email}
+   or on GitHub at <a href='https://github.com/${data.github}.'
 `
   
  }
