@@ -1,10 +1,10 @@
-# ReadMe-Gen
+# README-Gen
 
    ![badge](https://img.shields.io/badge/license-MIT-important)
    
    ## Description
    
-    This is an app that creates a ReadMe for a project. It will ask a series of questions and fill in the information from the input.
+    This is app allows to user to answer a series of questions and will input the answers to create a README for a project.
   
    ## Table of Contents
    - [Description](#description)
@@ -12,17 +12,16 @@
    - [Usage](#usage)
    - [Languages](#languages)    
    - [License](#license)
-   - [Testing](#testing)
    - [Contact](#contact)
- 
+
   
    ## Usage
-   Make sure to add as many details as necessary.
+   Make sure to include a detailed answer to each question.
      
    ## License
    ![badge](https://img.shields.io/badge/license-MIT-important)
    <br>
-   Permission is given under the MIT license. <https://opensource.org/licenses/MIT>
+   Permission given under the MIT license. <https://opensource.org/licenses/MIT>
  
  
    ## Contact:
