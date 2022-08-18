@@ -19,7 +19,7 @@ function generateReadMe(data) {
    - [License](#license)
    - [Contact](#contact)
 
-   ##Installation
+   ## Installation
    ${data.installation}
 
    ## Usage
